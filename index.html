@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGR</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Fondo de la imagen -->
+    <div id="background"></div>
+    
+    <!-- Partículas -->
+    <div id="particles-js"></div>
+
+    <!-- Íconos de redes sociales -->
+    <div class="social-icons">
+        <a href="https://www.tiktok.com/@_agr_23" class="social-icon" id="tiktok" target="_blank">
+            <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://www.twitch.tv/agr__0" class="social-icon" id="twitch" target="_blank">
+            <i class="fab fa-twitch"></i>
+        </a>
+        <a href="https://kick.com/agr-01" class="social-icon" id="kick" target="_blank">
+            <i class="fab fa-kickstarter"></i>
+        </a>
+        <a href="https://www.youtube.com/@AGR-rs" class="social-icon" id="youtube" target="_blank">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com/alexx_riveroo1/" class="social-icon" id="instagram" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <!-- Audio que se reproduce solo una vez al hacer clic en los iconos -->
+    <audio id="background-audio" preload="auto">
+        <source src="audio/masivo.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        // Obtener todos los iconos
+        const icons = document.querySelectorAll('.social-icon');
+        const audio = document.getElementById('background-audio');
+
+        // Reproducir el audio solo una vez al hacer clic en un icono
+        icons.forEach(icon => {
+            icon.addEventListener('click', function(event) {
+                // Verifica si el audio está detenido y no está ya sonando
+                if (audio.paused) {
+                    audio.currentTime = 0;  // Esto reinicia el audio para que siempre comience desde el inicio
+                    audio.play();  // Reproduce el audio
+                }
+            });
+        });
+
+        // Verificar si el navegador permite reproducción de audio (para evitar bloqueos)
+        window.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play().catch(err => console.error("No se pudo reproducir el audio: ", err));
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

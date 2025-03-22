@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background-color: black; /* Fondo negro para evitar bordes blancos */
+}
+
+/* Fondo de la imagen con un leve desenfoque y brillo */
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/dragon.jpg'); /* Ruta relativa de la imagen */
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    filter: blur(1px); /* Leve desenfoque */
+    transform: scale(1.05); /* Se escala para ocultar bordes */
+}
+
+
+/* Partículas con un leve desenfoque y escalado */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    filter: blur(1px);
+    transform: scale(1.05);
+}
+
+/* Contenedor de los iconos (centrado y efecto de aparición) */
+.social-icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 20px; /* Espacio entre los iconos */
+    z-index: 2;
+    opacity: 0; /* Inicialmente invisibles */
+    animation: fadeIn 0.5s forwards 0.2s; /* Efecto de aparición más rápido */
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5); /* Comienza pequeño y invisible */
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1); /* Llega al tamaño normal */
+    }
+}
+
+/* Estilo de cada icono */
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para brillo */
+    /* Cursor personalizado: triángulo negro lleno */
+    cursor: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2212%22 height%3D%2212%22 viewBox%3D%220 0 12 12%22%3E%3Cpolygon points%3D%220,0 0,12 12,6%22 fill%3D%22black%22/%3E%3C/svg%3E') 0 0, auto;
+}
+
+/* Íconos en blanco por defecto */
+.social-icon i {
+    color: white;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+/* Colores originales de cada red social al pasar el mouse */
+.social-icon#tiktok:hover i {
+    color: #EE1D52; /* Rojo original de TikTok */
+}
+
+.social-icon#twitch:hover i {
+    color: #9146FF; /* Morado original de Twitch */
+}
+
+.social-icon#kick:hover i {
+    color: #52FA18; /* Verde original de Kick */
+}
+
+.social-icon#youtube:hover i {
+    color: #FF0000; /* Rojo de YouTube */
+}
+
+.social-icon#instagram:hover i {
+    color: #E4405F; /* Rosa de Instagram */
+}
+
+/* Efecto de agrandado de los iconos al pasar el mouse */
+.social-icon:hover {
+    transform: scale(1.2);
+    /* Brillo alrededor del icono */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Brillo sutil */
+}
+
+/* Cursor minimalista para todo el documento: triángulo negro lleno */
+body {
+    cursor: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2212%22 height%3D%2212%22 viewBox%3D%220 0 12 12%22%3E%3Cpolygon points%3D%220,0 0,12 12,6%22 fill%3D%22black%22/%3E%3C/svg%3E') 0 0, auto;
+}
+
+/* Cursor minimalista al pasar sobre los iconos */
+.social-icon:hover {
+    cursor: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2212%22 height%3D%2212%22 viewBox%3D%220 0 12 12%22%3E%3Cpolygon points%3D%220,0 0,12 12,6%22 fill%3D%22black%22/%3E%3C/svg%3E') 0 0, auto;
+}
